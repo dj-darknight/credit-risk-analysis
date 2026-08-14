@@ -1,0 +1,115 @@
+{
+  "gmsc_decision_tree": {
+    "roc_auc": 0.85,
+    "precision": 0.2057,
+    "recall": 0.7561,
+    "f1": 0.3234,
+    "accuracy": 0.7885,
+    "confusion_matrix": [
+      [
+        22140,
+        5855
+      ],
+      [
+        489,
+        1516
+      ]
+    ]
+  },
+  "gmsc_knn": {
+    "roc_auc": 0.7561,
+    "precision": 0.494,
+    "recall": 0.1022,
+    "f1": 0.1694,
+    "accuracy": 0.933,
+    "confusion_matrix": [
+      [
+        27785,
+        210
+      ],
+      [
+        1800,
+        205
+      ]
+    ]
+  },
+  "gmsc_feature_importance": {
+    "RevolvingUtilizationOfUnsecuredLines": 0.5789,
+    "NumberOfTime30-59DaysPastDueNotWorse": 0.1893,
+    "NumberOfTimes90DaysLate": 0.1559,
+    "NumberOfTime60-89DaysPastDueNotWorse": 0.0503,
+    "age": 0.0114,
+    "NumberRealEstateLoansOrLines": 0.0105,
+    "MonthlyIncome": 0.002,
+    "DebtRatio": 0.0017,
+    "NumberOfOpenCreditLinesAndLoans": 0.0,
+    "NumberOfDependents": 0.0
+  },
+  "hcdr_decision_tree": {
+    "roc_auc": 0.6354,
+    "precision": 0.1121,
+    "recall": 0.6438,
+    "f1": 0.1909,
+    "accuracy": 0.5577,
+    "confusion_matrix": [
+      [
+        21764,
+        17798
+      ],
+      [
+        1243,
+        2247
+      ]
+    ]
+  },
+  "hcdr_knn": {
+    "roc_auc": 0.5777,
+    "precision": 0.12,
+    "recall": 0.0009,
+    "f1": 0.0017,
+    "accuracy": 0.9185,
+    "confusion_matrix": [
+      [
+        39540,
+        22
+      ],
+      [
+        3487,
+        3
+      ]
+    ]
+  },
+  "hcdr_feature_importance": {
+    "EMPLOYMENT_YEARS": 0.3411,
+    "NAME_EDUCATION_TYPE_Higher education": 0.1843,
+    "AGE_YEARS": 0.1696,
+    "REGION_RATING_CLIENT": 0.1268,
+    "AMT_CREDIT": 0.0521,
+    "AMT_ANNUITY": 0.047,
+    "FLAG_OWN_CAR_Y": 0.0308,
+    "AMT_INCOME_TOTAL": 0.0221,
+    "NAME_FAMILY_STATUS_Married": 0.0078,
+    "NAME_INCOME_TYPE_State servant": 0.0052,
+    "NAME_INCOME_TYPE_Commercial associate": 0.0031,
+    "NAME_HOUSING_TYPE_With parents": 0.003,
+    "NAME_INCOME_TYPE_Working": 0.0025,
+    "FLAG_OWN_REALTY_Y": 0.0023,
+    "CNT_CHILDREN": 0.0016,
+    "CNT_FAM_MEMBERS": 0.0006,
+    "NAME_EDUCATION_TYPE_Secondary / secondary special": 0.0,
+    "NAME_EDUCATION_TYPE_Incomplete higher": 0.0,
+    "NAME_EDUCATION_TYPE_Lower secondary": 0.0,
+    "NAME_FAMILY_STATUS_Separated": 0.0,
+    "NAME_FAMILY_STATUS_Single / not married": 0.0,
+    "NAME_FAMILY_STATUS_Unknown": 0.0,
+    "NAME_FAMILY_STATUS_Widow": 0.0,
+    "NAME_HOUSING_TYPE_Rented apartment": 0.0,
+    "NAME_HOUSING_TYPE_Office apartment": 0.0,
+    "NAME_HOUSING_TYPE_Municipal apartment": 0.0,
+    "NAME_HOUSING_TYPE_House / apartment": 0.0,
+    "NAME_INCOME_TYPE_Pensioner": 0.0,
+    "NAME_INCOME_TYPE_Maternity leave": 0.0,
+    "NAME_INCOME_TYPE_Student": 0.0,
+    "NAME_INCOME_TYPE_Unemployed": 0.0
+  }
+}
