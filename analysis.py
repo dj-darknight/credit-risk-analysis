@@ -1,6 +1,6 @@
 """
 Part 1.3: Data Analysis
-CommBank Senior Data Scientist - Credit Risk (WIL Project)
+CommBank Senior Data Scientist - Credit Risk (Indivdiual Project)
 
 Two datasets, one story: do individual-level credit-default risk drivers
 generalise across different lending populations?
@@ -8,7 +8,7 @@ generalise across different lending populations?
   Dataset B: Home Credit Default Risk (HCDR) - broader/thin-credit-history applicants
 
 Same two algorithms on both: Decision Tree, kNN (both differ from the
-item-based collaborative filtering used in Practical Data Science).
+item-based collaborative filtering used in Practical Data Science last semester).
 """
 
 import pandas as pd
@@ -19,12 +19,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
-from sklearn.metrics import (
-    roc_auc_score, precision_score, recall_score, f1_score,
-    confusion_matrix, accuracy_score
-)
+from sklearn.metrics import (roc_auc_score, precision_score, recall_score, f1_score,confusion_matrix, accuracy_score)
 
-RANDOM_STATE = 4175665  # Diya's student ID, for reproducibility
+RANDOM_STATE = 4175665  # My student ID, for reproducibility
 
 results = {}
 
@@ -40,27 +37,21 @@ gmsc = gmsc.drop(columns=["Id"])
 
 # Impute missing values (median for income/dependents - robust to outliers)
 imputer_gmsc = SimpleImputer(strategy="median")
-gmsc_imputed = pd.DataFrame(
-    imputer_gmsc.fit_transform(gmsc), columns=gmsc.columns
-)
+gmsc_imputed = pd.DataFrame(imputer_gmsc.fit_transform(gmsc), columns=gmsc.columns)
 
 y_a = gmsc_imputed["SeriousDlqin2yrs"].astype(int)
 X_a = gmsc_imputed.drop(columns=["SeriousDlqin2yrs"])
 
 print(f"Shape: {X_a.shape}, Target positive rate: {y_a.mean():.4f}")
 
-Xa_train, Xa_test, ya_train, ya_test = train_test_split(
-    X_a, y_a, test_size=0.2, random_state=RANDOM_STATE, stratify=y_a
-)
+Xa_train, Xa_test, ya_train, ya_test = train_test_split(X_a, y_a, test_size=0.2, random_state=RANDOM_STATE, stratify=y_a)
 
 scaler_a = StandardScaler()
 Xa_train_scaled = scaler_a.fit_transform(Xa_train)
 Xa_test_scaled = scaler_a.transform(Xa_test)
 
 # Decision Tree (depth-limited to avoid overfitting given class imbalance)
-dt_a = DecisionTreeClassifier(
-    max_depth=6, class_weight="balanced", random_state=RANDOM_STATE
-)
+dt_a = DecisionTreeClassifier(max_depth=6, class_weight="balanced", random_state=RANDOM_STATE)
 dt_a.fit(Xa_train, ya_train)
 dt_a_proba = dt_a.predict_proba(Xa_test)[:, 1]
 dt_a_pred = dt_a.predict(Xa_test)
@@ -73,13 +64,11 @@ knn_a_pred = knn_a.predict(Xa_test_scaled)
 
 
 def eval_model(y_true, y_pred, y_proba, name):
-    metrics = {
-        "roc_auc": round(roc_auc_score(y_true, y_proba), 4),
-        "precision": round(precision_score(y_true, y_pred, zero_division=0), 4),
-        "recall": round(recall_score(y_true, y_pred, zero_division=0), 4),
-        "f1": round(f1_score(y_true, y_pred, zero_division=0), 4),
-        "accuracy": round(accuracy_score(y_true, y_pred), 4),
-    }
+    metrics = { "roc_auc": round(roc_auc_score(y_true, y_proba), 4),
+                "precision": round(precision_score(y_true, y_pred, zero_division=0), 4),
+                "recall": round(recall_score(y_true, y_pred, zero_division=0), 4),
+                "f1": round(f1_score(y_true, y_pred, zero_division=0), 4),
+                "accuracy": round(accuracy_score(y_true, y_pred), 4), }
     cm = confusion_matrix(y_true, y_pred).tolist()
     print(f"\n{name}")
     for k, v in metrics.items():
@@ -148,9 +137,7 @@ X_b = pd.DataFrame(imputer_b.fit_transform(X_b), columns=X_b.columns)
 
 print(f"Shape: {X_b.shape}, Target positive rate: {y_b.mean():.4f}")
 
-Xb_train, Xb_test, yb_train, yb_test = train_test_split(
-    X_b, y_b, test_size=0.2, random_state=RANDOM_STATE, stratify=y_b
-)
+Xb_train, Xb_test, yb_train, yb_test = train_test_split( X_b, y_b, test_size=0.2, random_state=RANDOM_STATE, stratify=y_b)
 
 scaler_b = StandardScaler()
 Xb_train_scaled = scaler_b.fit_transform(Xb_train)
