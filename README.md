@@ -1,6 +1,6 @@
-# WIL Assignment — Part 1.3: Credit Risk Data Analysis
+# Individual Assignment — Part 1.3: Credit Risk Data Analysis
 
-Analysis code for Part 1.3 of the Work-Integrated Learning assignment, anchored
+Analysis code for Part 1.3 of the Individual assignment, anchored
 around a CommBank Senior Data Scientist – Credit Risk role (see Part 1.1).
 
 ## Story
