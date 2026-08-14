@@ -1,6 +1,6 @@
 """
 Part 1.3: Data Analysis
-CommBank Senior Data Scientist - Credit Risk (Indivdiual Project)
+CommBank Senior Data Scientist - Credit Risk (Individual Task 1 Project)
 
 Two datasets, one story: do individual-level credit-default risk drivers
 generalise across different lending populations?
